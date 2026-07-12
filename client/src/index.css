@@ -1,0 +1,112 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@layer base {
+  body {
+    @apply bg-white text-slate-900 dark:bg-slate-950 dark:text-slate-100 antialiased min-h-screen font-sans transition-colors duration-200;
+  }
+}
+
+/* ProseMirror Editor Styles */
+.ProseMirror {
+  outline: none;
+  min-height: 400px;
+  width: 100%;
+}
+
+.ProseMirror p {
+  margin-bottom: 1rem;
+  line-height: 1.6;
+}
+
+.ProseMirror h1 {
+  font-size: 1.875rem; /* 30px */
+  font-weight: 800;
+  margin-top: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.ProseMirror h2 {
+  font-size: 1.5rem; /* 24px */
+  font-weight: 700;
+  margin-top: 1.25rem;
+  margin-bottom: 0.75rem;
+}
+
+.ProseMirror h3 {
+  font-size: 1.25rem; /* 20px */
+  font-weight: 600;
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.ProseMirror ul {
+  list-style-type: disc;
+  padding-left: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.ProseMirror ol {
+  list-style-type: decimal;
+  padding-left: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.ProseMirror li {
+  margin-bottom: 0.25rem;
+}
+
+.ProseMirror blockquote {
+  border-left: 4px solid #6366f1; /* indigo-500 */
+  padding-left: 1rem;
+  @apply text-slate-500 dark:text-slate-400 italic mb-4 bg-indigo-500/5 dark:bg-indigo-500/10 py-2 pr-2 rounded-r-lg;
+}
+
+.ProseMirror code {
+  @apply bg-slate-100 text-slate-800 dark:bg-slate-800 dark:text-slate-300 rounded px-1 py-0.5 font-mono text-[0.85em];
+}
+
+.ProseMirror pre {
+  @apply bg-slate-50 border border-slate-200 dark:bg-slate-900/60 dark:border-slate-800/80 rounded-xl p-4 mb-4 overflow-x-auto;
+}
+
+.ProseMirror pre code {
+  background-color: transparent;
+  padding: 0;
+  border-radius: 0;
+  @apply text-slate-800 dark:text-slate-200 text-xs;
+}
+
+.ProseMirror hr {
+  border: 0;
+  @apply border-t border-slate-200 dark:border-slate-800/80 my-6;
+}
+
+/* Remote Cursor Caret & Selection Styles */
+.remote-cursor-container {
+  vertical-align: text-top;
+}
+
+.remote-cursor-container span {
+  z-index: 50;
+}
+
+.remote-selection {
+  transition: background-color 0.25s ease, border-bottom-color 0.25s ease;
+}
+
+/* Inline Comments Highlighter */
+.inline-comment-highlight {
+  background-color: rgba(245, 158, 11, 0.15);
+  border-bottom: 2px dashed rgba(245, 158, 11, 0.45);
+  cursor: pointer;
+  transition: background-color 0.2s ease, border-bottom-color 0.2s ease;
+}
+
+.inline-comment-highlight:hover,
+.inline-comment-highlight.active-comment {
+  background-color: rgba(245, 158, 11, 0.3);
+  border-bottom-style: solid;
+  border-bottom-color: rgba(245, 158, 11, 0.8);
+}
